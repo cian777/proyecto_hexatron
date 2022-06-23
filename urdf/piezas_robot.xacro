@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<robot name="piezas_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find piezas_robot_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find piezas_robot_description)/urdf/piezas_robot.trans" />
+<xacro:include filename="$(find piezas_robot_description)/urdf/piezas_robot.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="3.019715383457247e-11 3.0286398058123193e-12 0.09250979484933489" rpy="0 0 0"/>
+    <mass value="4.071597447876389"/>
+    <inertia ixx="0.006647" iyy="0.00646" izz="0.007974" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://piezas_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://piezas_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor1_1">
+  <inertial>
+    <origin xyz="0.0 0.0 -0.06950000000000002" rpy="0 0 0"/>
+    <mass value="0.04993954221962674"/>
+    <inertia ixx="4.2e-05" iyy="4.2e-05" izz="1e-06" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.179" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://piezas_robot_description/meshes/motor1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.179" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://piezas_robot_description/meshes/motor1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Componente3_1">
+  <inertial>
+    <origin xyz="-0.009032197850902925 -1.486722755461578e-07 3.53753663279166e-07" rpy="0 0 0"/>
+    <mass value="0.05003932015885187"/>
+    <inertia ixx="4e-06" iyy="3e-06" izz="3e-06" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0175 0.035737 -0.171223" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://piezas_robot_description/meshes/Componente3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0175 0.035737 -0.171223" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://piezas_robot_description/meshes/Componente3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor1_1_1">
+  <inertial>
+    <origin xyz="0.0 0.0 -0.03" rpy="0 0 0"/>
+    <mass value="1.4130000000000003"/>
+    <inertia ixx="0.000718" iyy="0.000848" izz="0.000718" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.1195" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://piezas_robot_description/meshes/motor1_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.1195" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://piezas_robot_description/meshes/motor1_1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link1_1">
+  <inertial>
+    <origin xyz="0.0043170799112029045 -0.005023477361975136 -0.008573537066787817" rpy="0 0 0"/>
+    <mass value="0.395770880768087"/>
+    <inertia ixx="0.000139" iyy="0.00012" izz="0.000193" ixy="3.7e-05" iyz="2.8e-05" ixz="-2.1e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.1595" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://piezas_robot_description/meshes/link1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.1595" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://piezas_robot_description/meshes/link1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rígida1" type="fixed">
+  <origin xyz="0.0 0.0 0.0595" rpy="0 0 0"/>
+  <parent link="motor1_1_1"/>
+  <child link="motor1_1"/>
+</joint>
+
+<joint name="Rígida2" type="fixed">
+  <origin xyz="0.0175 -0.035737 0.011723" rpy="0 0 0"/>
+  <parent link="link1_1"/>
+  <child link="Componente3_1"/>
+</joint>
+
+<joint name="Rígida3" type="fixed">
+  <origin xyz="0.0 0.0 0.1195" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="motor1_1_1"/>
+</joint>
+
+<joint name="Revolución4" type="continuous">
+  <origin xyz="0.0 0.0 -0.0195" rpy="0 0 0"/>
+  <parent link="motor1_1"/>
+  <child link="link1_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+</robot>
